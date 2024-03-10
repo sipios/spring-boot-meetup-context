@@ -20,13 +20,13 @@ public class CustomerService {
     this.customerRepository = customerRepository;
   }
 
-  private static void assertNameIsValid(final String firstName) {
-    if (firstName == null || firstName.isBlank()) {
+  private static void assertNameIsValid(final String name) {
+    if (name == null || name.isBlank()) {
       throw new IllegalArgumentException("First name cannot be empty");
     }
     final String regex = "^[a-zA-Z]*$";
-    if (!firstName.matches(regex)) {
-      throw new IllegalArgumentException("First name must contain only letters");
+    if (!name.matches(regex)) {
+      throw new InvalidName(name);
     }
   }
 
