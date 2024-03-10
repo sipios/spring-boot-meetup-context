@@ -23,8 +23,8 @@ public class CustomersController {
   private final CustomerService customerService;
 
   public CustomersController(final CustomerService customerService) {
-    log.info("Sleeping during 10 secs");
-    sleep(10);
+    log.info("Sleeping during 5 secs");
+    sleep(5);
     this.customerService = customerService;
   }
 

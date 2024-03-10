@@ -13,8 +13,8 @@ public class CustomerRepository {
   private final CustomerJpaRepository customerJpaRepository;
 
   public CustomerRepository(CustomerJpaRepository customerJpaRepository) {
-    log.info("Sleeping during 10 secs");
-    sleep(10);
+    log.info("Sleeping during 5 secs");
+    sleep(5);
     this.customerJpaRepository = customerJpaRepository;
   }
 
