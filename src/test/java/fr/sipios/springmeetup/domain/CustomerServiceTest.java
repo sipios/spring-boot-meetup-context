@@ -1,6 +1,7 @@
 package fr.sipios.springmeetup.domain;
 
 import fr.sipios.springmeetup.infrastructure.CustomerEntity;
+import fr.sipios.springmeetup.infrastructure.CustomerEventLogger;
 import fr.sipios.springmeetup.infrastructure.CustomerRepository;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,7 @@ import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
@@ -18,6 +19,9 @@ class CustomerServiceTest {
 
   @Mock
   private CustomerRepository customerRepository;
+
+  @Mock
+  private CustomerEventLogger customerEventLogger;
 
   @InjectMocks
   private CustomerService customerService;
@@ -46,9 +50,32 @@ class CustomerServiceTest {
   void should_create_new_customer_when_information_are_valid() {
     // GIVEN
     final CustomerEntity customerEntity = new CustomerEntity("John", "Doe");
+    doReturn(customerEntity).when(customerRepository).createCustomer(customerEntity);
     // WHEN
     customerService.createCustomer(customerEntity);
     // THEN
     verify(customerRepository).createCustomer(customerEntity);
+  }
+
+  @Test
+  void should_log_customer_event_when_customer_is_created() {
+    // GIVEN
+    final CustomerEntity customerEntity = new CustomerEntity("John", "Doe");
+    doReturn(customerEntity).when(customerRepository).createCustomer(customerEntity);
+    // WHEN
+    customerService.createCustomer(customerEntity);
+    // THEN
+    verify(customerEventLogger).logCustomerEvent(customerEntity);
+  }
+
+  @Test
+  void should_not_log_customer_event_when_customer_is_not_created() {
+    // GIVEN
+    final CustomerEntity customerEntity = new CustomerEntity("John", "Doe");
+    doThrow(RuntimeException.class).when(customerRepository).createCustomer(any());
+    // WHEN
+    assertThrows(RuntimeException.class, () -> customerService.createCustomer(customerEntity));
+    // THEN
+    verify(customerEventLogger, never()).logCustomerEvent(any());
   }
 }

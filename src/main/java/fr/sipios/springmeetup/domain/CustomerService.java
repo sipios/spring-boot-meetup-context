@@ -1,6 +1,7 @@
 package fr.sipios.springmeetup.domain;
 
 import fr.sipios.springmeetup.infrastructure.CustomerEntity;
+import fr.sipios.springmeetup.infrastructure.CustomerEventLogger;
 import fr.sipios.springmeetup.infrastructure.CustomerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -11,9 +12,11 @@ import java.util.List;
 @Slf4j
 public class CustomerService {
   private final CustomerRepository customerRepository;
+  private final CustomerEventLogger customerEventLogger;
 
-  public CustomerService(CustomerRepository customerRepository) {
+  public CustomerService(CustomerRepository customerRepository, CustomerEventLogger customerEventLogger) {
     log.info("Starting CustomerService");
+    this.customerEventLogger = customerEventLogger;
     this.customerRepository = customerRepository;
   }
 
@@ -41,6 +44,8 @@ public class CustomerService {
 
   public CustomerEntity createCustomer(final CustomerEntity customerEntity) {
     assertCustomerIsValid(customerEntity);
-    return customerRepository.createCustomer(customerEntity);
+    final CustomerEntity createdCustomer = customerRepository.createCustomer(customerEntity);
+    customerEventLogger.logCustomerEvent(createdCustomer);
+    return createdCustomer;
   }
 }
