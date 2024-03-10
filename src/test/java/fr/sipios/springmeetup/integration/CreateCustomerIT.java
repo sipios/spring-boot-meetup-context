@@ -27,7 +27,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 @AutoConfigureMockMvc
 public class CreateCustomerIT {
 
-  static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
+  private static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
       "postgres:15-alpine"
   );
 
