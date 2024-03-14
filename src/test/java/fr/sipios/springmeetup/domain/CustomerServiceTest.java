@@ -1,6 +1,7 @@
 package fr.sipios.springmeetup.domain;
 
 import fr.sipios.springmeetup.app1.domain.CustomerService;
+import fr.sipios.springmeetup.app1.domain.InvalidName;
 import fr.sipios.springmeetup.app1.infrastructure.CustomerEntity;
 import fr.sipios.springmeetup.app1.infrastructure.CustomerEventLogger;
 import fr.sipios.springmeetup.app1.infrastructure.CustomerRepository;
@@ -44,7 +45,7 @@ class CustomerServiceTest {
   @ValueSource(strings = {"Doe-sasa", "1234", "é&é'(§è!çà'}"})
   @NullAndEmptySource
   void should_not_be_able_to_create_a_customer_with_an_empty_last_name(final String lastName) {
-    assertThrows(IllegalArgumentException.class, () -> customerService.createCustomer(new CustomerEntity("John", lastName)));
+    assertThrows(InvalidName.class, () -> customerService.createCustomer(new CustomerEntity("John", lastName)));
   }
 
   @Test

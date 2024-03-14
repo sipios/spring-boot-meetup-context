@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class RandomService {
   public RandomService() {
-    log.info("RandomService initialized ans sleeping for 5 seconds");
-    sleep(5);
+    log.info("RandomService initialized sleeping for 5 seconds");
+    sleep(2);
   }
 }

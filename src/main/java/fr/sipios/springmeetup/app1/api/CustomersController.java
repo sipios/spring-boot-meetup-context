@@ -2,7 +2,9 @@ package fr.sipios.springmeetup.app1.api;
 
 import fr.sipios.springmeetup.app1.domain.CustomerService;
 import fr.sipios.springmeetup.app1.infrastructure.CustomerEntity;
+import fr.sipios.springmeetup.utils.MeasureTestTimeUtils;
 import static fr.sipios.springmeetup.utils.SleepUtils.sleep;
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -24,9 +26,16 @@ public class CustomersController {
   private final CustomerService customerService;
 
   public CustomersController(final CustomerService customerService) {
+    MeasureTestTimeUtils.registerStartTime(this.getClass().getSimpleName());
     log.info("Sleeping during 5 secs");
-    sleep(5);
+    sleep(2);
     this.customerService = customerService;
+  }
+
+  @PostConstruct
+  private void postConstruct() {
+    log.info("PostConstruct method");
+    MeasureTestTimeUtils.registerEndTime(this.getClass().getSimpleName());
   }
 
   @GetMapping
