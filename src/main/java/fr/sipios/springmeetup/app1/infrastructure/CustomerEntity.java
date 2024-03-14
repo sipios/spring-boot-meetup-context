@@ -1,4 +1,4 @@
-package fr.sipios.springmeetup.infrastructure;
+package fr.sipios.springmeetup.app1.infrastructure;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

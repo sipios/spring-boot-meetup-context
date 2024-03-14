@@ -1,4 +1,4 @@
-package fr.sipios.springmeetup.infrastructure;
+package fr.sipios.springmeetup.app1.infrastructure;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

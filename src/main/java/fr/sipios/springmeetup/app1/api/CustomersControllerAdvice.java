@@ -1,6 +1,6 @@
-package fr.sipios.springmeetup.api;
+package fr.sipios.springmeetup.app1.api;
 
-import fr.sipios.springmeetup.domain.InvalidName;
+import fr.sipios.springmeetup.app1.domain.InvalidName;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

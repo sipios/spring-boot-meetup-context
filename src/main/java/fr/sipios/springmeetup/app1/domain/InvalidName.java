@@ -1,4 +1,4 @@
-package fr.sipios.springmeetup.domain;
+package fr.sipios.springmeetup.app1.domain;
 
 public class InvalidName extends RuntimeException {
   public InvalidName(String name) {

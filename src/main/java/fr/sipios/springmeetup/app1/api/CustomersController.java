@@ -1,7 +1,7 @@
-package fr.sipios.springmeetup.api;
+package fr.sipios.springmeetup.app1.api;
 
-import fr.sipios.springmeetup.domain.CustomerService;
-import fr.sipios.springmeetup.infrastructure.CustomerEntity;
+import fr.sipios.springmeetup.app1.domain.CustomerService;
+import fr.sipios.springmeetup.app1.infrastructure.CustomerEntity;
 import static fr.sipios.springmeetup.utils.SleepUtils.sleep;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

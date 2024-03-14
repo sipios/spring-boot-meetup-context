@@ -1,4 +1,4 @@
-package fr.sipios.springmeetup.infrastructure;
+package fr.sipios.springmeetup.app1.infrastructure;
 
 import static fr.sipios.springmeetup.utils.SleepUtils.sleep;
 import lombok.extern.slf4j.Slf4j;

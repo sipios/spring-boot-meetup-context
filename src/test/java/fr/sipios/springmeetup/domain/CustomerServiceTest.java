@@ -1,8 +1,9 @@
 package fr.sipios.springmeetup.domain;
 
-import fr.sipios.springmeetup.infrastructure.CustomerEntity;
-import fr.sipios.springmeetup.infrastructure.CustomerEventLogger;
-import fr.sipios.springmeetup.infrastructure.CustomerRepository;
+import fr.sipios.springmeetup.app1.domain.CustomerService;
+import fr.sipios.springmeetup.app1.infrastructure.CustomerEntity;
+import fr.sipios.springmeetup.app1.infrastructure.CustomerEventLogger;
+import fr.sipios.springmeetup.app1.infrastructure.CustomerRepository;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

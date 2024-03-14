@@ -1,7 +1,7 @@
 package fr.sipios.springmeetup.integration;
 
-import fr.sipios.springmeetup.infrastructure.CustomerEventLogger;
-import fr.sipios.springmeetup.infrastructure.CustomerJpaRepository;
+import fr.sipios.springmeetup.app1.infrastructure.CustomerEventLogger;
+import fr.sipios.springmeetup.app1.infrastructure.CustomerJpaRepository;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.any;

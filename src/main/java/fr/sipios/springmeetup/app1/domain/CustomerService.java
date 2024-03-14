@@ -1,8 +1,8 @@
-package fr.sipios.springmeetup.domain;
+package fr.sipios.springmeetup.app1.domain;
 
-import fr.sipios.springmeetup.infrastructure.CustomerEntity;
-import fr.sipios.springmeetup.infrastructure.CustomerEventLogger;
-import fr.sipios.springmeetup.infrastructure.CustomerRepository;
+import fr.sipios.springmeetup.app1.infrastructure.CustomerEntity;
+import fr.sipios.springmeetup.app1.infrastructure.CustomerEventLogger;
+import fr.sipios.springmeetup.app1.infrastructure.CustomerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
