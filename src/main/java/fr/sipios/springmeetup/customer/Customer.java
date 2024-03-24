@@ -33,4 +33,17 @@ public class Customer {
     this.role = role;
     this.enabled = enabled;
   }
+
+
+  @Override
+  public String toString() {
+    return "Customer{" +
+        "id=" + id +
+        ", name='" + name + '\'' +
+        ", email='" + email + '\'' +
+        ", password='" + password + '\'' +
+        ", role=" + role +
+        ", enabled=" + enabled +
+        '}';
+  }
 }
