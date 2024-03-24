@@ -1,5 +1,7 @@
 package fr.sipios.springmeetup.customer;
 
+import fr.sipios.springmeetup.utils.MeasureTime;
+import jakarta.annotation.PostConstruct;
 import jakarta.validation.Valid;
 import lombok.SneakyThrows;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +23,15 @@ import java.util.List;
 public class CustomerController {
     private final CustomerService customerService;
 
-    public CustomerController(CustomerService customerService) {
+    public CustomerController(CustomerService customerService) throws InterruptedException {
+        MeasureTime.start(this.getClass().getSimpleName());
+        Thread.sleep(2000);
         this.customerService = customerService;
+    }
+
+    @PostConstruct
+    public void postConstruct() {
+        MeasureTime.stop(this.getClass().getSimpleName());
     }
 
     @GetMapping

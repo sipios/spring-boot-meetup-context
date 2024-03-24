@@ -1,5 +1,7 @@
 package fr.sipios.springmeetup.customer;
 
+import fr.sipios.springmeetup.utils.MeasureTime;
+import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -7,13 +9,24 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
     private final CustomerEventLogger customerEventLogger;
 
-    public Customer createCustomer(Customer customer) {
+public CustomerService(CustomerRepository customerRepository, CustomerEventLogger customerEventLogger) throws InterruptedException {
+    MeasureTime.start(this.getClass().getSimpleName());
+    this.customerRepository = customerRepository;
+    this.customerEventLogger = customerEventLogger;
+    Thread.sleep(3000);
+  }
+
+  @PostConstruct
+  public void postConstruct() {
+    MeasureTime.stop(this.getClass().getSimpleName());
+  }
+
+  public Customer createCustomer(Customer customer) {
         customerEventLogger.logNewCustomer(customer);
         return customerRepository.save(customer);
     }

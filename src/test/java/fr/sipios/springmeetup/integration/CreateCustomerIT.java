@@ -1,5 +1,6 @@
 package fr.sipios.springmeetup.integration;
 
+import fr.sipios.springmeetup.IntegrationTest;
 import fr.sipios.springmeetup.customer.CustomerEventLogger;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
@@ -14,9 +15,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
-@AutoConfigureMockMvc
-public class CreateCustomerIT {
+public class CreateCustomerIT extends IntegrationTest {
 
   @Autowired
   private MockMvc mockMvc;
