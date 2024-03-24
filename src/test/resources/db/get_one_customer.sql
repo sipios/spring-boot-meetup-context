@@ -1,0 +1,1 @@
+insert into customer (id, name, email, password, role, enabled) values (202, 'Toto', 'toto@mail.com', 'password123', 'USER', true);
