@@ -23,9 +23,8 @@ import java.util.List;
 public class CustomerController {
     private final CustomerService customerService;
 
-    public CustomerController(CustomerService customerService) throws InterruptedException {
+    public CustomerController(CustomerService customerService) {
         MeasureTime.start(this.getClass().getSimpleName());
-        Thread.sleep(2000);
         this.customerService = customerService;
     }
 

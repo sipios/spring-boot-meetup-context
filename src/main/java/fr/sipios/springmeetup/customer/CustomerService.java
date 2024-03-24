@@ -18,7 +18,6 @@ public CustomerService(CustomerRepository customerRepository, CustomerEventLogge
     MeasureTime.start(this.getClass().getSimpleName());
     this.customerRepository = customerRepository;
     this.customerEventLogger = customerEventLogger;
-    Thread.sleep(3000);
   }
 
   @PostConstruct
