@@ -1,0 +1,18 @@
+GET http://localhost:8080/customers
+Accept: application/json
+###
+
+GET http://localhost:8080/customers/1
+Accept: application/json
+###
+
+POST http://localhost:8080/customers
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "John Doe",
+  "email": "sam@mail.com",
+  "password": "123456789",
+  "role": "ADMIN"
+}
