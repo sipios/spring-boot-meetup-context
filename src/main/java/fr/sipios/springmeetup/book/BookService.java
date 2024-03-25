@@ -1,5 +1,8 @@
 package fr.sipios.springmeetup.book;
 
+import fr.sipios.springmeetup.utils.MeasureTime;
+import static fr.sipios.springmeetup.utils.SleepUtils.sleep;
+import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,7 +12,14 @@ public class BookService {
   private final BookRepository bookRepository;
 
   public BookService(BookRepository bookRepository) {
+    MeasureTime.start(this.getClass().getSimpleName());
+    sleep(3);
     this.bookRepository = bookRepository;
+  }
+
+  @PostConstruct
+  public void postConstruct() {
+    MeasureTime.stop(this.getClass().getSimpleName());
   }
 
   public Book createBook(Book book) {

@@ -1,10 +1,10 @@
 package fr.sipios.springmeetup.customer;
 
 import fr.sipios.springmeetup.utils.MeasureTime;
+import static fr.sipios.springmeetup.utils.SleepUtils.sleep;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 @Component
 @Slf4j
@@ -12,6 +12,7 @@ public class CustomerEventLogger {
 
   public CustomerEventLogger() {
     MeasureTime.start(this.getClass().getSimpleName());
+    sleep(10);
     log.info("CustomerEventLogger created");
   }
 

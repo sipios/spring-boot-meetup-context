@@ -1,0 +1,10 @@
+CustomerService,3006
+CustomerEventLogger,3
+BookService,3008
+BookController,3006
+CustomerController,3001
+CustomerService,3009
+CustomerEventLogger,2
+BookService,3006
+BookController,3002
+CustomerController,3006

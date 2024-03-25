@@ -1,5 +1,8 @@
 package fr.sipios.springmeetup.book;
 
+import fr.sipios.springmeetup.utils.MeasureTime;
+import static fr.sipios.springmeetup.utils.SleepUtils.sleep;
+import jakarta.annotation.PostConstruct;
 import jakarta.validation.Valid;
 import lombok.SneakyThrows;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +25,14 @@ public class BookController {
   private final BookService bookService;
 
   public BookController(BookService bookService) {
+    MeasureTime.start(this.getClass().getSimpleName());
+    sleep(3);
     this.bookService = bookService;
+  }
+
+  @PostConstruct
+  public void postConstruct() {
+    MeasureTime.stop(this.getClass().getSimpleName());
   }
 
   @PostMapping

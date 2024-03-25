@@ -3,18 +3,18 @@ package fr.sipios.springmeetup.utils;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MeasureTime {
 
+  public static final String FILE_NAME = "measure_time-" + LocalDateTime.now() + ".csv";
+  private static final Map<String, Long> MAP_TIME_IN_SECONDS = new HashMap<>();
+  private static final String DEFAULT_KEY = "default";
   private MeasureTime() {
     throw new IllegalStateException("Utility class");
   }
-
-  private static final Map<String, Long> MAP_TIME_IN_SECONDS = new HashMap<>();
-  public static final String FILE_NAME = "measure_time.csv";
-  private static final String DEFAULT_KEY = "default";
 
   public static void start(String key) {
     MAP_TIME_IN_SECONDS.put(key, System.currentTimeMillis());
