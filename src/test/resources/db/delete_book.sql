@@ -1,2 +1,2 @@
 insert into book (id, title, author)
-values (202, 'Java', 'John');
+values (203, 'Java', 'John');

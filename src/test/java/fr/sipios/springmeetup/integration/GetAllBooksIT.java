@@ -9,18 +9,19 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@Sql("classpath:db/insert_book.sql")
-public class GetOneBookIT extends IntegrationTest {
+@Sql("classpath:db/insert_books.sql")
+public class GetAllBooksIT extends IntegrationTest {
 
   @Autowired
   private MockMvc mockMvc;
 
   @Test
-  void should_retrieve_book() throws Exception {
-    mockMvc.perform(get("/books/202"))
+  void should_retrieve_all_books() throws Exception {
+    mockMvc.perform(get("/books"))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.id").value(202L))
-        .andExpect(jsonPath("$.title").value("Java"))
-        .andExpect(jsonPath("$.author").value("John"));
+        .andExpect(jsonPath("$.books").isArray())
+        .andExpect(jsonPath("$.books[0].title").value("Java"))
+        .andExpect(jsonPath("$.books[1].title").value("Kotlin"))
+        .andExpect(jsonPath("$.books[2].title").value("Scala"));
   }
 }

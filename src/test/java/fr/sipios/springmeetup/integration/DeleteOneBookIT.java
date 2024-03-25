@@ -5,22 +5,22 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@Sql("classpath:db/insert_book.sql")
-public class GetOneBookIT extends IntegrationTest {
+@Sql("classpath:db/delete_book.sql")
+public class DeleteOneBookIT extends IntegrationTest {
 
   @Autowired
   private MockMvc mockMvc;
 
   @Test
-  void should_retrieve_book() throws Exception {
-    mockMvc.perform(get("/books/202"))
-        .andExpect(status().isOk())
-        .andExpect(jsonPath("$.id").value(202L))
-        .andExpect(jsonPath("$.title").value("Java"))
-        .andExpect(jsonPath("$.author").value("John"));
+  void should_delete_book() throws Exception {
+    mockMvc.perform(delete("/books/203"))
+        .andExpect(status().isOk());
+
+    mockMvc.perform(get("/books/203"))
+        .andExpect(status().isNotFound());
   }
 }
