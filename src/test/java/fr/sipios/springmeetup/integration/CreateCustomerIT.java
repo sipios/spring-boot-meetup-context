@@ -1,10 +1,8 @@
 package fr.sipios.springmeetup.integration;
 
 import fr.sipios.springmeetup.IntegrationTest;
-import fr.sipios.springmeetup.customer.CustomerEventLogger;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -21,8 +19,6 @@ public class CreateCustomerIT extends IntegrationTest {
          "enabled": true
        }
        """;
-  @MockBean
-  private CustomerEventLogger customerEventLogger;
 
   @Autowired
   private MockMvc mockMvc;
