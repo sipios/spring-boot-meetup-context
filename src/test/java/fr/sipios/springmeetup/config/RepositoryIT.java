@@ -1,4 +1,4 @@
-package fr.sipios.springmeetup;
+package fr.sipios.springmeetup.config;
 
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

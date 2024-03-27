@@ -1,6 +1,6 @@
 package fr.sipios.springmeetup.controller;
 
-import fr.sipios.springmeetup.ControllerIT;
+import fr.sipios.springmeetup.config.ControllerIT;
 import fr.sipios.springmeetup.customer.CustomerNotFound;
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.doThrow;

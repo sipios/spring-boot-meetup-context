@@ -1,6 +1,6 @@
 package fr.sipios.springmeetup.integration;
 
-import fr.sipios.springmeetup.IntegrationTest;
+import fr.sipios.springmeetup.config.IntegrationTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.jdbc.Sql;

@@ -1,6 +1,6 @@
 package fr.sipios.springmeetup.repository;
 
-import fr.sipios.springmeetup.RepositoryIT;
+import fr.sipios.springmeetup.config.RepositoryIT;
 import fr.sipios.springmeetup.customer.CustomerRepository;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;

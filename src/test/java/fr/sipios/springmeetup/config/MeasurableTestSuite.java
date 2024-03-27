@@ -1,4 +1,4 @@
-package fr.sipios.springmeetup;
+package fr.sipios.springmeetup.config;
 
 import fr.sipios.springmeetup.utils.MeasureTime;
 import org.junit.jupiter.api.AfterAll;

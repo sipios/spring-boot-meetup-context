@@ -1,10 +1,8 @@
 package fr.sipios.springmeetup.integration;
 
-import fr.sipios.springmeetup.IntegrationTest;
+import fr.sipios.springmeetup.config.IntegrationTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -21,7 +19,7 @@ public class GetOneCustomerIT extends IntegrationTest {
   @Test
   void should_retrieve_one_customer() throws Exception {
     mockMvc.perform(get("/customers/202")
-        .contentType("application/json"))
+            .contentType("application/json"))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.id").isNumber())
         .andExpect(jsonPath("$.name").value("Toto"))

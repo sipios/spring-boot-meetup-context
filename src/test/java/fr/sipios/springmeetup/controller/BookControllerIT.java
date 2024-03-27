@@ -1,8 +1,8 @@
 package fr.sipios.springmeetup.controller;
 
-import fr.sipios.springmeetup.ControllerIT;
 import fr.sipios.springmeetup.book.Book;
 import fr.sipios.springmeetup.book.BookNotFound;
+import fr.sipios.springmeetup.config.ControllerIT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
